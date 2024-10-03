@@ -52,6 +52,7 @@ public class VierOpEenRijVenster extends javax.swing.JFrame implements java.util
         jRadioButtonHuman = new javax.swing.JRadioButton();
         jRadioButtonLtR = new javax.swing.JRadioButton();
         jRadioButtonRandom = new javax.swing.JRadioButton();
+        jRadioButtonLoser = new javax.swing.JRadioButton();
         vorPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,6 +111,19 @@ public class VierOpEenRijVenster extends javax.swing.JFrame implements java.util
         });
         Toolbar.add(jRadioButtonRandom);
 
+        strategyGroup.add(jRadioButtonLoser);
+        jRadioButtonLoser.setText("vs loser");
+        jRadioButtonLoser.setFocusable(false);
+        jRadioButtonLoser.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jRadioButtonLoser.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jRadioButtonLoser.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jRadioButtonLoser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonLoserActionPerformed(evt);
+            }
+        });
+        Toolbar.add(jRadioButtonLoser);
+
         vorPanel.setLayout(new java.awt.GridLayout(6, 7, 1, 1));
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
@@ -152,6 +166,10 @@ public class VierOpEenRijVenster extends javax.swing.JFrame implements java.util
         VierOpEenRij.getInstance().setAgainst(new RandomVorStrategy());
     }//GEN-LAST:event_jRadioButtonRandomActionPerformed
 
+    private void jRadioButtonLoserActionPerformed(java.awt.event.ActionEvent evt) {
+        VierOpEenRij.getInstance().setAgainst(new LoserStrategy());
+    }
+
     /**
      * creates new VorBucket objects that are presented in the user interface
      */
@@ -185,6 +203,7 @@ public class VierOpEenRijVenster extends javax.swing.JFrame implements java.util
     private javax.swing.JRadioButton jRadioButtonHuman;
     private javax.swing.JRadioButton jRadioButtonLtR;
     private javax.swing.JRadioButton jRadioButtonRandom;
+    private javax.swing.JRadioButton jRadioButtonLoser;
     private javax.swing.JButton newButton;
     private javax.swing.ButtonGroup strategyGroup;
     private javax.swing.JPanel vorPanel;
